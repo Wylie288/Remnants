@@ -69,7 +69,7 @@ global.pause_status = 0
             <kind>1</kind>
             <string>draw_set_color(make_color_rgb(255,146,11))
 draw_set_font(font5)
-draw_text(x,y-16,"Distance")
+draw_text(x,y-12,"Distance")
 </string>
           </argument>
         </arguments>

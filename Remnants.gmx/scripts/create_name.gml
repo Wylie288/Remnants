@@ -42,6 +42,13 @@
                 name_ok = 1
                 reason = "Cannot use special characters "
             }
+            regex_setinput(global.uname)
+            regex_setexpression("\s")
+            if regex_search() = 1
+            {
+                name_ok = 1
+                reason = "Cannot use new lines "
+            }
         }
         file_text_close(file)
     }

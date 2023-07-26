@@ -54,6 +54,32 @@ if global.junk &gt; 2
 
 if ini_read_real("ship","number",0) = 1
 {
+if global.junk &gt; 4
+    {
+    locked = ds_list_create()
+    i = 0
+    repeat(7)
+    {
+        i += 1
+        if ini_read_real("ship",string(i),0) = 0
+            ds_list_add(locked,i)
+    }
+    ds_list_shuffle(locked)
+    ini_write_real("ship",string(ds_list_find_value(locked,0)),1)
+    global.selected_ship = ds_list_find_value(locked,0)
+    ini_write_real("ship","selected",ds_list_find_value(locked,0))
+    ds_list_destroy(locked)
+    ini_write_real("ship","number",ini_read_real("ship","number",1)+1)
+    global.junk -= 5
+    ini_write_real("junk","ingame",global.junk)
+    room_restart()
+    ini_close()
+    exit
+    }
+}
+
+if ini_read_real("ship","number",0) = 2
+{
 if global.junk &gt; 9
     {
     locked = ds_list_create()
@@ -78,7 +104,7 @@ if global.junk &gt; 9
     }
 }
 
-if ini_read_real("ship","number",0) = 2
+if ini_read_real("ship","number",0) = 3
 {
 if global.junk &gt; 14
     {
@@ -104,7 +130,7 @@ if global.junk &gt; 14
     }
 }
 
-if ini_read_real("ship","number",0) = 3
+if ini_read_real("ship","number",0) = 4
 {
 if global.junk &gt; 24
     {
@@ -130,36 +156,10 @@ if global.junk &gt; 24
     }
 }
 
-if ini_read_real("ship","number",0) = 4
-{
-if global.junk &gt; 49
-    {
-    locked = ds_list_create()
-    i = 0
-    repeat(7)
-    {
-        i += 1
-        if ini_read_real("ship",string(i),0) = 0
-            ds_list_add(locked,i)
-    }
-    ds_list_shuffle(locked)
-    ini_write_real("ship",string(ds_list_find_value(locked,0)),1)
-    global.selected_ship = ds_list_find_value(locked,0)
-    ini_write_real("ship","selected",ds_list_find_value(locked,0))
-    ds_list_destroy(locked)
-    ini_write_real("ship","number",ini_read_real("ship","number",1)+1)
-    global.junk -= 50
-    ini_write_real("junk","ingame",global.junk)
-    room_restart()
-    ini_close()
-    exit
-    }
-}
-
 if ini_read_real("ship","number",0) &gt; 4
 if ini_read_real("ship","number",0) &lt; 13
 {
-if global.junk &gt; 74
+if global.junk &gt; 49
     {
     locked = ds_list_create()
     i = 0
@@ -175,7 +175,7 @@ if global.junk &gt; 74
     ini_write_real("ship","selected",ds_list_find_value(locked,0))
     ds_list_destroy(locked)
     ini_write_real("ship","number",ini_read_real("ship","number",1)+1)
-    global.junk -= 75
+    global.junk -= 50
     ini_write_real("junk","ingame",global.junk)
     room_restart()
     ini_close()
@@ -260,19 +260,19 @@ if ini_read_real("ship","number",0) = 0
 draw_text(x+70,y-15,"3")
 
 if ini_read_real("ship","number",0) = 1
-draw_text(x+70,y-15,"10")
+draw_text(x+70,y-15,"5")
 
 if ini_read_real("ship","number",0) = 2
-draw_text(x+70,y-15,"15")
+draw_text(x+70,y-15,"10")
 
 if ini_read_real("ship","number",0) = 3
-draw_text(x+70,y-15,"25")
+draw_text(x+70,y-15,"15")
 
 if ini_read_real("ship","number",0) = 4
-draw_text(x+70,y-15,"50")
+draw_text(x+70,y-15,"25")
 
 if ini_read_real("ship","number",0) &gt; 4 &amp;&amp; ini_read_real("ship","number",0) &lt; 13
-draw_text(x+85,y-15,"75")
+draw_text(x+85,y-15,"50")
 }
 else
 draw_text(x-0,y-15,"Sold Out")

@@ -52,7 +52,7 @@ instance_destroy()
             <string>visible = 1
 
 if instance_exists(obj_overlay)
-    if global.pause_status &lt; 2
+    if global.pause_status &lt; 2 or global.board_loaded = 0
         visible = 0
 </string>
           </argument>
@@ -78,74 +78,7 @@ if instance_exists(obj_overlay)
             <kind>1</kind>
             <string>if visible = 1
 {
-if instance_exists(obj_archives_high_score)
-    with(obj_archives_high_score)
-    {
-        for (i = global.listc; i&lt;global.draw; i+=2;)
-            if global.uname = ds_list_find_value(name_list,i) &amp;&amp; record = real(ds_list_find_value(name_list,i+1))
-                exit
-       for (i = 0; i&lt;global.liste; i+=2;)
-        if global.uname = ds_list_find_value(name_list,i) &amp;&amp; record = real(ds_list_find_value(name_list,i+1))
-        {//
-               found = i + 2
-               i = global.liste
-        }
-        if found &gt; 60
-        {
-            global.draw = found 
-            global.lista = found
-            global.listb = found - 1
-            global.listc = found - 60
-            global.listd = (found - 60) / 2
-        }
-        else
-        {
-            global.draw = 60
-            global.lista = 60
-            global.listb = 59
-            global.listc = 0
-            global.listd = 0
-        }
-                /*found = i
-        if i &gt; 20
-            {
-                global.draw = i + 20
-                global.lista = i
-                global.listb = i - 1
-                global.listc = i - 20
-                global.listd = i / 2
-            }*/
-    }
-    
-if instance_exists(obj_overlay)
-    with(obj_overlay)
-    {
-        for (i = global.listc; i&lt;global.draw; i+=2;)
-            if global.uname = ds_list_find_value(name_list,i) &amp;&amp; record = real(ds_list_find_value(name_list,i+1))
-                exit
-       for (i = 0; i&lt;global.liste; i+=2;)
-        if global.uname = ds_list_find_value(name_list,i) &amp;&amp; record = real(ds_list_find_value(name_list,i+1))
-        {
-               found = i + 2
-               i = global.liste
-        }
-        if found &gt; 20
-        {
-            global.draw = found 
-            global.lista = found
-            global.listb = found - 1
-            global.listc = found - 20
-            global.listd = (found - 20) / 2
-        }
-        else
-        {
-            global.draw = 20
-            global.lista = 20
-            global.listb = 19
-            global.listc = 0
-            global.listd = 0
-        }
-    }
+    global.scroll = scr_findSelf()
 }
 </string>
           </argument>

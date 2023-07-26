@@ -50,19 +50,14 @@ http = 0
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>visible = 1
-
+            <string>if global.board_loaded = 1
+    visible = global.friendDraw
+else
+    visible = 0
+    
 if instance_exists(obj_overlay)
-    if global.pause_status &lt; 2
+    if global.pause_status &lt; 2 or global.board_loaded = 0
         visible = 0
-
-if instance_exists(obj_overlay)
-    if obj_overlay.friends = 0
-        visible = 0
-
-if instance_exists(obj_archives_high_score)
-    if obj_archives_high_score.friends = 0
-        visible = 0     
 </string>
           </argument>
         </arguments>
@@ -87,62 +82,8 @@ if instance_exists(obj_archives_high_score)
             <kind>1</kind>
             <string>if visible = 1
 {
-    name_ok = 0
-    do
-    {
-        if name_ok = 0
-        name = get_string("Insert your friends name.", "")
-        if name_ok = 1
-        name = get_string(reason+"try again.", "")
-        name_ok = 0
-        file = file_text_open_read(working_directory + "Filter_Words.txt")
-        repeat (727)
-        {
-            text = file_text_read_string(file)
-            if string_pos(text,name) != 0
-            {
-                name_ok = 1
-                reason = "Cannot use the phrase "+chr(34)+text+chr(34)+" "
-            }
-            file_text_readln(file)
-        }
-        if string_char_at(name, 1) = " "
-        {
-                name_ok = 1
-                reason = "Cannot start name with a space "
-        }
-        if string_length(name) &gt; 15
-        {
-                name_ok = 1
-                reason = "Your username cannot exceed 15 characters"
-        }
-        if name = ""
-        {
-        http = 0
-        exit
-        }
-        if name_ok = 0
-        {
-            regex_setinput(name)
-            regex_setexpression("[^a-zA-Z\d\s:]")
-            if regex_search() = 1
-            {
-                name_ok = 1
-                reason = "Cannot use special characters "
-            }
-        }
-    file_text_close(file)
-    }
-    until (name_ok = 0);
-    ini_open("gameSync.ini")
-    num = ini_read_real("friends","n",1)
-    ini_write_string("friends",string((num*2)+1),name)
-    ini_close()
-    uid = 1
-    idc = 1
-    ucheck = 0
-    gsCheck_ID(uid);
-    http = 1
+    addFriend()
+    friendsList()
 }
 </string>
           </argument>

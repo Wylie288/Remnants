@@ -1515,7 +1515,7 @@ if global.simple_ui = 0
 {
 draw_set_color(make_color_rgb(72,158,221))
 draw_sprite(spr_score_back,0,0,400-global.trans*2)
-draw_text(60,405-global.trans*2,string(round(global.display_distance))+" mi")
+draw_text(60,409-global.trans*2,string(round(global.display_distance))+" mi")
 }
 </string>
           </argument>
@@ -1543,9 +1543,9 @@ if global.simple_ui = 0
 draw_set_valign(fa_top);
 draw_sprite(spr_collectables,-1,720,400-global.trans*2)
 draw_sprite(spr_money,-1,610,422-global.trans*2)
-draw_text(675,407-global.trans*2,string(global.money))
+draw_text(675,411-global.trans*2,string(global.money))
 draw_sprite(spr_junk,-1,610,475-global.trans*2)
-draw_text(675,458-global.trans*2,string(global.junk))
+draw_text(675,463-global.trans*2,string(global.junk))
 }
 </string>
           </argument>
@@ -1577,7 +1577,7 @@ draw_sprite(spr_gas_tube,0,360,1680+global.trans)
 ///Fuel Status
 if global.gas &lt; 41
 draw_set_color(make_color_rgb(255,146,11))
-draw_text(360,1610+global.trans,string(round(global.gas)) + "%")
+draw_text(360,1612+global.trans,string(round(global.gas)) + "%")
 }
 </string>
           </argument>
@@ -1629,7 +1629,7 @@ if global.simple_ui = 0
 draw_set_color(make_color_rgb(72,158,221))
 draw_sprite(spr_score_asteroids,0,720,1680+global.trans)
 if global.shield_system = 0
-draw_text(660,1628+global.trans,"Not#Active")
+draw_text(660,1632+global.trans,"Not#Active")
 }
 </string>
           </argument>
@@ -1657,7 +1657,7 @@ if global.simple_ui = 0
 draw_set_color(make_color_rgb(72,158,221))
 draw_sprite(spr_score_rockets,0,0,1680+global.trans)
 if global.rocket_system = 0
-draw_text(60,1628+global.trans,"Not#Active")
+draw_text(60,1632+global.trans,"Not#Active")
 }
 </string>
           </argument>

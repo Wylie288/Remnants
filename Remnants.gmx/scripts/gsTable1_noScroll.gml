@@ -1,16 +1,17 @@
 // This first bit will write the table to an ini file to be loaded if the player is offline.
-if (0 == 1 && 1 == 1)
+/*if (0 == 1 && 1 == 1)
 {
     ls = ds_list_size(name_list);
     ini_open("gameSync.ini")
-    ini_section_delete('HighScores');
+    if ini_section_exists('HighScores')
+        ini_section_delete('HighScores')
     for (c=0 c<ls c+=1)
     {
         ini_write_string('HighScores','Row'+string(c),string(ds_list_find_value(name_list,c)));
     }
     ini_close();
     wr = 0;
-}
+}*/
 
 // Plain Table (1 no scroll) ==========================================================================================
 if (argument4 == 1) 

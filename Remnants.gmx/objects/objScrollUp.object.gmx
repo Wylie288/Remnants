@@ -52,17 +52,17 @@ instance_destroy()
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if global.listc = 0
-    {
-    visible = 0
-    }
-else 
+            <string>if global.scroll != 0
     {
     visible = 1
     }
+else 
+    {
+    visible = 0
+    }
 
 if instance_exists(obj_overlay)
-    if global.pause_status &lt; 2
+    if global.pause_status &lt; 2 or global.board_loaded = 0
         visible = 0
 </string>
           </argument>
@@ -86,14 +86,9 @@ if instance_exists(obj_overlay)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (global.listc &gt; 0)
-    {
-    //20 -=2;
-    global.lista -= 2;
-    global.listb -= 2;
-    global.listc -= 2;
-    global.listd -= 1;
-    }
+            <string>if global.board_loaded = 1 and visible = 1
+    if global.scroll &gt; 0
+        global.scroll -= 1
 </string>
           </argument>
         </arguments>
@@ -116,14 +111,9 @@ if instance_exists(obj_overlay)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (global.listc &gt; 0 &amp;&amp; visible == 1)
-    {
-    global.draw -=2;
-    global.lista -= 2;
-    global.listb -= 2;
-    global.listc -= 2;
-    global.listd -= 1;
-    }
+            <string>if global.board_loaded = 1 and visible = 1
+    if global.scroll &gt; 0
+        global.scroll -= 1
 </string>
           </argument>
         </arguments>
@@ -146,14 +136,9 @@ if instance_exists(obj_overlay)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (global.listc &gt; 0)
-    {
-    //20 -=2;
-    global.lista -= 2;
-    global.listb -= 2;
-    global.listc -= 2;
-    global.listd -= 1;
-    }
+            <string>if global.board_loaded = 1 and visible = 1
+    if global.scroll &gt; 0
+        global.scroll -= 1
 </string>
           </argument>
         </arguments>

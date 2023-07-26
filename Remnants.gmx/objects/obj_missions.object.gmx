@@ -26,6 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>http = -1
+global.scroll = 0
 </string>
           </argument>
         </arguments>
@@ -58,7 +59,10 @@ if os_is_network_connected()
 if global.online = 1
 {
 global.rowcount = 0
-gsGet_RowCount()
+global.boardHeight = 10
+//gsGet_RowCount()
+get_board()
+global.scroll = 0
 http = 2
 dt = 0
 }
@@ -100,7 +104,7 @@ dt = 0
             <kind>1</kind>
             <string>draw_set_color(make_color_rgb(255,146,11))
 draw_set_font(font5)
-draw_text(x,y-16,"Records")
+draw_text(x,y-12,"Records")
 </string>
           </argument>
         </arguments>

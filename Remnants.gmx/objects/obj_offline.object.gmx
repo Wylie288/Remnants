@@ -122,7 +122,7 @@ insertS = gsInsert_Record_S(global.uname, string(record), global.uid);
             <kind>1</kind>
             <string>draw_set_color(make_color_rgb(255,146,11))
 draw_set_font(font5)
-draw_text(x,y-16,"Offline")
+draw_text(x,y-12,"Offline")
 </string>
           </argument>
         </arguments>

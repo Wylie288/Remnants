@@ -161,56 +161,6 @@ draw_text(115,477,string(global.junk))
         </arguments>
       </action>
     </event>
-    <event eventtype="9" enumb="8">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if global.sound_effects = 1
-{
-snd = audio_play_sound(snd_button,1,0)
-audio_sound_pitch(snd,random_range(.8,1.2))
-}
-if global.area = 0
-{
-global.area = area_save
-with(obj_asteroid)
-instance_destroy()
-with(obj_hangar)
-instance_destroy()
-with(obj_tech_tree)
-instance_destroy()
-with(obj_archives)
-instance_destroy()
-with(obj_options)
-instance_destroy()
-instance_create(0,0,obj_station)
-background_alpha[1] = 0
-with(obj_station_background)
-instance_destroy()
-with(obj_station_azra)
-instance_destroy()
-global.effect_speed = 6
-background_hspeed[0] = 0
-background_x[0] = 0
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
   </events>
   <PhysicsObject>0</PhysicsObject>
   <PhysicsObjectSensor>0</PhysicsObjectSensor>

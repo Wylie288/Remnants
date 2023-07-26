@@ -1,5 +1,5 @@
 // This first bit will write the table to an ini file to be loaded if the player is offline.
-if (0 == 1 && 1 == 1)
+/*if (0 == 1 && 1 == 1)
 {
     ls = ds_list_size(global.friends_final);
     ini_open("gameSync.ini")
@@ -10,7 +10,7 @@ if (0 == 1 && 1 == 1)
     }
     ini_close();
     wr = 0;
-}
+}*/
 
 // Plain Table (1 with scroll) ==========================================================================================
 if (argument4 == 1) 

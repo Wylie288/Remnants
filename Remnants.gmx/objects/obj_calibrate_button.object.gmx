@@ -92,7 +92,7 @@ audio_sound_pitch(snd,random_range(.8,1.2))
           <argument>
             <kind>1</kind>
             <string>draw_set_color(make_color_rgb(255,146,11))
-draw_text(x,y-46,"Controls")
+draw_text(x,y-36,"Controls")
 </string>
           </argument>
         </arguments>

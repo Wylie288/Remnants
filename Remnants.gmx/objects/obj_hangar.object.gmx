@@ -89,7 +89,7 @@ audio_play_sound(snd_button,1,0)
           <argument>
             <kind>1</kind>
             <string>draw_set_color(make_color_rgb(255,146,11))
-draw_text(x,y-46,"Hangar")
+draw_text(x,y-36,"Hangar")
 </string>
           </argument>
         </arguments>

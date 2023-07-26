@@ -89,4 +89,4 @@ repeat(count)
 }
 
 ds_grid_sort(global.board, 1, false);
-board_loaded = 1
+global.board_loaded = 1

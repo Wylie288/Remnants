@@ -55,7 +55,7 @@ instance_destroy()
             <string>visible = 1
 
 if instance_exists(obj_overlay)
-    if global.pause_status &lt; 2
+    if global.pause_status &lt; 2 or global.board_loaded = 0
         visible = 0
 </string>
           </argument>
@@ -80,21 +80,13 @@ if instance_exists(obj_overlay)
           <argument>
             <kind>1</kind>
             <string>if visible = 1
-if http = 0
 {
-i = 0
-in = 0
-http = 0
-friends = ds_list_create()
-num = ds_list_create()
-global.friends_final = ds_list_create()
-ds_list_clear(friends);
-ds_list_clear(num);
-ds_list_clear(global.friends_final);
-http = 1
-gsPlayer_Highest_Score(global.uid);
-i += 1
-insertS = 0
+    global.scroll = 0
+    global.friendDraw = 1
+    global.friends = ds_list_create()
+    ds_list_clear(global.friends)
+    global.friendsBoard = ds_grid_create(1,1)
+    friendsList()
 }
 </string>
           </argument>

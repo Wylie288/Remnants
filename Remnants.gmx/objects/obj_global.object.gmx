@@ -52,7 +52,7 @@ instance_destroy()
             <string>visible = 1
 
 if instance_exists(obj_overlay)
-    if global.pause_status &lt; 2
+    if global.pause_status &lt; 2 or global.board_loaded = 0
         visible = 0
 </string>
           </argument>
@@ -78,6 +78,7 @@ if instance_exists(obj_overlay)
             <kind>1</kind>
             <string>if visible = 1
 {
+    global.friendDraw = 0
 if instance_exists(obj_overlay)
 obj_overlay.friends = 0
 if instance_exists(obj_archives_high_score)
@@ -87,6 +88,7 @@ global.lista = 20
 global.listb = 19
 global.listc = 0
 global.listd = 0
+global.scroll = 0
 }
 
 if (global.online = 0) or (os_is_network_connected() = 0)

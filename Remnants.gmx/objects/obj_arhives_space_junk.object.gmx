@@ -87,7 +87,7 @@
           <argument>
             <kind>1</kind>
             <string>draw_set_color(make_color_rgb(255,146,11))
-draw_text(x,y-18,"Space Junk" )
+draw_text(x,y-14,"Space Junk" )
 
 
 </string>

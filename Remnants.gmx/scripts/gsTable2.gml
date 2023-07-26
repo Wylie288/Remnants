@@ -1,5 +1,5 @@
 // This first bit will write the table to an ini file to be loaded if the player is offline.
-if (objGsController.settings[12] == 1 && wr == 1)
+/*if (objGsController.settings[12] == 1 && wr == 1)
 {
     ls = ds_list_size(name_list);
     ini_open(objGsController.settings[0])
@@ -10,7 +10,7 @@ if (objGsController.settings[12] == 1 && wr == 1)
     }
     ini_close();
     wr = 0;
-}
+}*/
 
 // Colored Table (2)===================================================================
 if (argument4 == 2) 

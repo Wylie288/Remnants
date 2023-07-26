@@ -385,6 +385,9 @@
       <script>scripts\get_record.gml</script>
     </scripts>
     <script>scripts\DrawBoard.gml</script>
+    <script>scripts\get_board.gml</script>
+    <script>scripts\scr_findSelf.gml</script>
+    <script>scripts\friendsList.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\Tech</font>
@@ -656,7 +659,9 @@
         <object>objects\objCompareScore</object>
         <object>objects\objLoading</object>
         <object>objects\objScrollUp</object>
+        <object>objects\obj_scrollup_arc</object>
         <object>objects\objScrollDown</object>
+        <object>objects\objScrollDown_arc</object>
         <object>objects\obj_global</object>
         <object>objects\obj_self</object>
         <object>objects\obj_friends</object>

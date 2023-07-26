@@ -33,7 +33,9 @@ room_goto(rm_tutorial)
 if global.online = 0
     instance_destroy()
 else
+{
     get_record(global.uname)
+}
 </string>
           </argument>
         </arguments>
@@ -96,7 +98,6 @@ type_event = ds_map_find_value(async_load, "type")
             
     }
 
-/*
 if http = 1
 {
 ucheck = real(gsCheck_ID_Result());
@@ -182,7 +183,6 @@ if http = 3
     
     draw_set_valign(fa_top);
 }
-//
 </string>
           </argument>
         </arguments>
@@ -208,7 +208,7 @@ if http = 3
             <string>show_debug_message("Client Started")
 gotrecord = -1
 hack_detected = 0
-//alarm[0] = 100
+alarm[0] = 100
 global.pause_status = 0
 global.aotd = ds_list_create()
 ds_list_add(global.aotd, 1,2,3,4,5,7)
@@ -312,6 +312,7 @@ global.testareas = 0
 global.prev_distance = 0
 global.area = 1
 global.board = 0
+global.friendsBoard = 0
 </string>
           </argument>
         </arguments>
@@ -344,7 +345,7 @@ if os_is_network_connected()
     alignment = 1
     global.buffer = buffer_create(size,type,alignment)
     
-    ip = "184.18.55.74"//"127.0.0.1" //"184.18.52.116"
+    ip = "127.0.0.1" //"184.18.52.116"
     port = 8330
     global.socket = network_create_socket(type)
     network_set_config(network_config_connect_timeout,240)
@@ -355,7 +356,7 @@ else
     alarm[0] = 1
 }
 
-/*
+
 idc = 1
 global.phighscore = -1
 
@@ -387,11 +388,11 @@ global.listd = 0;
 global.liste = 0;
 alarm[0] = 240
 http = 1
-global.online = 1
+//global.online = 1
 }
 else //offline
 {
-global.online = 0
+    global.online = 0
 }
 </string>
           </argument>
