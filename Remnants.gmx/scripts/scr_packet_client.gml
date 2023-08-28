@@ -27,16 +27,11 @@ ini_open("save")
 ini_close()
 
 newname = 0
-
+    
 if global.uname = ""
 {
-    show_debug_message("New User")
-    create_name()
-    buffer_seek(global.buffer, buffer_seek_start, 0)
-    buffer_write(global.buffer,buffer_u8,NAME)
-    buffer_write(global.buffer,buffer_string,global.uname)
-    buffer_write(global.buffer,buffer_u8,1)
-    network_send_packet(global.socket,global.buffer,buffer_tell(global.buffer))
+    name_ok = 0
+    askName()
 }
 else
 {
@@ -45,21 +40,19 @@ else
     buffer_write(global.buffer,buffer_string,global.uname)
     buffer_write(global.buffer,buffer_u8,0)
     network_send_packet(global.socket,global.buffer,buffer_tell(global.buffer))
-alarm[0] = 1
+    alarm[0] = 1
 }
 
 #define scr_nametaken
 buffer = argument0
 taken = buffer_read(buffer, buffer_u8)
-show_message("Taken " + string(taken))
 if taken = 1
 {
-    show_debug_message("Name Taken")
+    show_message_async("Taken " + string(taken))
     scr_connected_c(buffer)
 }
 if taken = 0
 {
-    show_debug_message("Name Not Taken")
     ini_open("save");
     ini_write_string('name','name',global.uname)
     ini_write_string('friends','1',global.uname)
